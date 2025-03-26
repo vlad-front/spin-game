@@ -16,6 +16,14 @@ img {
   height: auto;
 }
 
+a {
+  text-decoration: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
 .wrapper {
   opacity: 0;
   transition: opacity 0.5s ease;

@@ -68,12 +68,13 @@
 .btn-spin {
   font-size: 14rem;
   font-family: "Sigmar One", sans-serif;
+  stroke: .7rem $dark;
   -webkit-text-stroke: .7rem $dark;
   animation: pulseAnimation 1s ease-in-out infinite;
 
   &.disabled {
     background-position: 0 93%;
-    opacity: 0.7;
+    color: rgba($whte, 0.6);
     animation: none;
   }
 }

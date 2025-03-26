@@ -81,6 +81,13 @@ img {
   height: auto;
 }
 
+a {
+  text-decoration: none;
+}
+a:focus {
+  outline: none;
+}
+
 .wrapper {
   opacity: 0;
   transition: opacity 0.5s ease;
@@ -447,12 +454,13 @@ img {
 .btn-spin {
   font-size: 14rem;
   font-family: "Sigmar One", sans-serif;
+  stroke: 0.7rem #360443;
   -webkit-text-stroke: 0.7rem #360443;
   animation: pulseAnimation 1s ease-in-out infinite;
 }
 .btn-spin.disabled {
   background-position: 0 93%;
-  opacity: 0.7;
+  color: rgba(255, 255, 255, 0.6);
   animation: none;
 }
 
