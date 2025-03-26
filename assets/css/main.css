@@ -1,0 +1,469 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v5.0.2 | 20191019
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+  display: block;
+}
+
+/* HTML5 hidden-attribute fix for newer browsers */
+*[hidden] {
+  display: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 1;
+}
+
+menu, ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  font-size: min(0.5141388175vh, 0.8796296296vw);
+}
+
+body {
+  color: #fff;
+  background: #000;
+  height: 100vh;
+  font-family: "Changa One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.wrapper {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  min-height: 100vh;
+  max-height: 100vh;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background: url("../img/main-bg.jpg") 50% 0 no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.wrapper.active {
+  opacity: 1;
+}
+
+.wrapper__logo {
+  width: 53rem;
+  height: 53rem;
+  position: absolute;
+  left: 0;
+  top: -5rem;
+  z-index: 2;
+}
+
+.wrapper__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.wrapper__decor {
+  background: url("../img/wrapper-decor.png") 50% 0 no-repeat;
+  background-size: 100%;
+  width: 93rem;
+  height: 72rem;
+  transform: translateX(14rem);
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.btn-reset {
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  border: none;
+  background-color: transparent;
+}
+.btn-reset:focus {
+  outline: none;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68.9rem;
+  height: 29.2rem;
+  background-image: url("../img/spin-button-bg.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 0 5%;
+  text-align: center;
+  color: #fff;
+  font-family: "Sigmar One", sans-serif;
+  -webkit-text-stroke: 0.7rem #360443;
+}
+
+.reel {
+  position: relative;
+  transition: transform 0.1s linear;
+}
+
+.reel.spinning {
+  animation: spin 1s linear;
+}
+
+.game-image.winner {
+  animation: winnerAnimation 1s ease-in-out infinite;
+}
+
+@keyframes pulseAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes winnerAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: rgba(19, 1, 33, 0.8);
+  display: none;
+}
+.popup.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+.popup__inner {
+  position: relative;
+  width: 80rem;
+  background: url("../img/popup-bg.png") 50% 50% no-repeat;
+  background-size: contain;
+  padding: 24rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.popup__logo {
+  width: 64rem;
+  height: 64rem;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -32%);
+}
+.popup__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.popup .popup-message {
+  position: relative;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.popup .popup-message .icon {
+  width: 30%;
+  height: 27rem;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 100%;
+}
+.popup .popup-message .icon.icon-cross {
+  background-image: url("../img/cross.png");
+}
+.popup .popup-message .icon.icon-check {
+  background-image: url("../img/check.png");
+}
+.popup .popup-message .text {
+  width: 70%;
+  font-family: "Changa One", sans-serif;
+  font-size: 6.5rem;
+  letter-spacing: 0.7rem;
+  line-height: 90%;
+}
+.popup .btn-popup {
+  width: 70rem;
+  text-transform: uppercase;
+  font-size: 9.5rem;
+  background-position: 0 7%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -36rem;
+  margin-bottom: -8rem;
+  z-index: 1;
+  letter-spacing: -1rem;
+  animation: pulseAnimation 1s ease-in-out infinite;
+}
+
+.popup-start .popup__inner {
+  gap: 6rem;
+}
+.popup-start .popup-header .title {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 20rem;
+  line-height: 1;
+}
+.popup-start .popup-header .received {
+  font-size: 8rem;
+  line-height: 90%;
+  text-transform: uppercase;
+}
+.popup-start .popup-spins {
+  color: #F5FF36;
+  font-size: 20rem;
+  line-height: 70%;
+  font-family: "Changa One", sans-serif;
+}
+
+.popup-end .popup__inner {
+  gap: 6rem;
+  padding: 26rem 5rem;
+}
+.popup-end .popup-header .title {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 18rem;
+  line-height: 75%;
+}
+.popup-end .popup-header .won {
+  font-size: 12rem;
+  letter-spacing: 1rem;
+  line-height: 80%;
+  text-transform: uppercase;
+}
+.popup-end .win-amount {
+  text-align: center;
+}
+.popup-end .win-amount .price {
+  color: #F5FF36;
+  text-transform: uppercase;
+  font-size: 16rem;
+  line-height: 90%;
+}
+.popup-end .win-amount .spins {
+  font-size: 8rem;
+  line-height: 90%;
+  letter-spacing: 0.1rem;
+}
+.popup-end .popup-message .text {
+  font-size: 6.2rem;
+}
+.popup-end .btn-popup {
+  line-height: 1;
+  transform: translate(-50%, 15%);
+}
+.popup-end .btn-popup span {
+  width: 75%;
+}
+
+.timer-box {
+  background: url("../img/timer-bg.png") 50% 50% no-repeat;
+  background-size: 100%;
+  width: 44rem;
+  height: 35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Titan One", sans-serif;
+  color: #fff;
+  padding: 2rem 1rem;
+  margin-top: 9rem;
+}
+.timer-box .timer-title {
+  text-align: center;
+  font-size: 3.5rem;
+  -webkit-text-stroke: 0.2rem #2D063E;
+  text-stroke: 0.2rem #2D063E;
+}
+.timer-box .timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.timer-box .timer .timer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.timer-box .timer .timer-col .number {
+  display: block;
+  -webkit-text-stroke: 0.5rem #2D063E;
+  text-stroke: 0.5rem #2D063E;
+  font-size: 14rem;
+  line-height: 90%;
+}
+.timer-box .timer .timer-col .label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  -webkit-text-stroke: 0.2rem #2D063E;
+  text-stroke: 0.2rem #2D063E;
+}
+.timer-box .timer .timer-col .dots {
+  transform: translateY(-20%);
+}
+
+.game {
+  width: 100%;
+  background: url("../img/game-bg.png") 50% 50% no-repeat;
+  background-size: 100%;
+  padding: 7rem 5.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 2;
+  margin-top: 27%;
+}
+.game__grid {
+  height: 100rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: hidden;
+}
+.game__grid--col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.game .game-image {
+  width: 28rem;
+  height: 33.33rem;
+  flex-shrink: 0;
+}
+.game .game-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.spins-count {
+  width: 79.6rem;
+  height: 19.6rem;
+  background: url("../img/spins-bg.png") 50% 50% no-repeat;
+  background-size: contain;
+  margin: -10rem auto 0 auto;
+}
+.spins-count__text {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #DCEFFF;
+  background: linear-gradient(#DCEFFF 33%, #C079E9 80%, #F0CDFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 10rem;
+  font-family: "Titan One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+}
+
+.btn-spin {
+  font-size: 14rem;
+  font-family: "Sigmar One", sans-serif;
+  -webkit-text-stroke: 0.7rem #360443;
+  animation: pulseAnimation 1s ease-in-out infinite;
+}
+.btn-spin.disabled {
+  background-position: 0 93%;
+  opacity: 0.7;
+  animation: none;
+}
+
+@keyframes spin {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(20rem);
+  }
+  100% {
+    transform: translateY(-266.66rem);
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

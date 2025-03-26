@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Sigmar+One&family=Titan+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Bigger Bass Splash</title>
+
+    <style>
+        .preload {
+            width: 100%;
+            max-width: 430px;
+            margin: 0 auto;
+            min-height: 100vh;
+            max-height: 100vh;
+            background: url("assets/img/preload-bg.png") 50% 0 no-repeat;
+            background-size: cover;
+            overflow: hidden;
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10;
+            transition: opacity 0.5s ease;
+        }
+        .preload__logo {
+            position: absolute;
+            left: 50%;
+            top: -5rem;
+            transform: translateX(-50%);
+            z-index: 2;
+            width: 65rem;
+            height: 65rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .preload__logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .preload__content {
+            width: 90rem;
+            height: 25rem;
+            background: url("assets/img/preload-content-bg.png") 50% 50% no-repeat;
+            background-size: 100%;
+            border-radius: 12.5rem;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%);
+            z-index: 11;
+        }
+        .preload__content--move-bg {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 12;
+            height: 25rem;
+            background: #070334;
+            border-radius: 0 12.5rem 12.5rem 0;
+            animation: changeWidth 2.1s ease-in-out forwards;
+        }
+        .preload__content--decor {
+            background: url("assets/img/preload-decor.png") 0 0 no-repeat;
+            background-size: contain;
+            width: 46rem;
+            height: 46rem;
+            position: absolute;
+            top: -17rem;
+            left: 15%;
+            z-index: 13;
+            animation: moveRight 2s ease-in-out forwards;
+        }
+        @keyframes moveRight {
+            0% {
+                transform: translateX(15%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        @keyframes changeWidth {
+            0% {
+                width: 60%;
+            }
+            100% {
+                width: 15%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="preload">
+    <div class="preload__logo">
+        <img src="assets/img/logo.png" alt="logo">
+    </div>
+    <div class="preload__content">
+        <div class="preload__content--decor"></div>
+        <div class="preload__content--move-bg"></div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const startPopup = document.querySelector('.js--start-popup');
+        const wrapper = document.querySelector('.js--wrapper');
+        const activateButton = document.querySelector('.js--activate-game');
+        const preload = document.querySelector('.preload');
+
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                preload.style.opacity = '0';
+                setTimeout(function() {
+                    preload.style.display = 'none';
+                    startPopup.classList.add('active');
+                }, 500);
+            }, 2500);
+        });
+
+        activateButton.addEventListener('click', function() {
+            startPopup.classList.remove('active');
+            wrapper.classList.add('active');
+        });
+    });
+</script>
+
+<div class="wrapper js--wrapper">
+    <div class="wrapper__logo">
+        <img src="assets/img/logo.png" alt="logo" loading="lazy">
+    </div>
+    <div class="wrapper__decor"></div>
+    <div class="game">
+        <div class="game__grid">
+            <div class="game__grid--col">
+                <div class="game-image">
+                    <img src="assets/img/slot1.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot2.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot3.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot4.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot5.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot6.png" alt="slot">
+                </div>
+                <div class="game-image js--winner-slot">
+                    <img src="assets/img/slot7.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot8.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot9.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot10.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot11.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot12.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot13.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot14.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot15.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot16.png" alt="slot">
+                </div>
+            </div>
+            <div class="game__grid--col">
+                <div class="game-image js--winner-slot">
+                    <img src="assets/img/slot7.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot8.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot9.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot4.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot5.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot1.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot12.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot13.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot14.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot2.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot3.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot6.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot11.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot12.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot14.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot15.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot13.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot13.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot16.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot10.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot14.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot2.png" alt="slot">
+                </div>
+            </div>
+            <div class="game__grid--col">
+                <div class="game-image">
+                    <img src="assets/img/slot9.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot13.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot14.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot1.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot12.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot1.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot5.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot4.png" alt="slot">
+                </div>
+                <div class="game-image js--winner-slot">
+                    <img src="assets/img/slot7.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot8.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot3.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot6.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot12.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot13.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot14.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot2.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot11.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot12.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot14.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot10.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot14.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot2.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot13.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot16.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot15.png" alt="slot">
+                </div>
+                <div class="game-image">
+                    <img src="assets/img/slot13.png" alt="slot">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="spins-count">
+        <span class="spins-count__text">
+            FREE SPINS: <span class="spins-left">3</span>
+        </span>
+    </div>
+    <button class="btn-reset btn btn-spin js--spin">
+        SPIN
+    </button>
+</div>
+
+<div class="popup popup-start js--start-popup">
+    <div class="popup__inner">
+        <div class="popup__logo">
+            <img src="assets/img/logo.png" alt="logo" loading="lazy">
+        </div>
+        <div class="popup-header">
+            <div class="title">WOW!</div>
+            <div class="received">you RECEIVED:</div>
+        </div>
+        <div class="popup-spins">
+            3 FREE SPINS
+        </div>
+        <div class="popup-message">
+            <span class="icon icon-cross"></span>
+            <span class="text">Without registration</span>
+        </div>
+        <button class="btn-reset btn btn-popup js--activate-game">
+            Activate
+        </button>
+    </div>
+</div>
+
+<div class="popup popup-end js--end-popup">
+    <div class="popup__inner">
+        <div class="popup__logo">
+            <img src="assets/img/logo.png" alt="logo" loading="lazy">
+        </div>
+        <div class="popup-header">
+            <div class="title">Well done!</div>
+            <div class="won">you won:</div>
+        </div>
+        <div class="win-amount">
+            <div class="price">450 GPB</div>
+            <div class="spins">+ 250 Free spins</div>
+        </div>
+        <div class="popup-message">
+            <span class="icon icon-check"></span>
+            <span class="text">
+                Turn on notifications and receive more special bonuses!
+            </span>
+        </div>
+        <button class="btn-reset btn btn-popup js--activate-game">
+            <span>INSTALL THE APP</span>
+        </button>
+    </div>
+
+    <div class="timer-box">
+        <div class="timer-title">Bonus will expire in :</div>
+        <div class="timer">
+            <div class="timer-col">
+                <span class="number minutes">15</span>
+                <span class="label">MINUTES</span>
+            </div>
+            <div class="timer-col">
+                <span class="number dots">:</span>
+            </div>
+            <div class="timer-col">
+                <span class="number seconds">00</span>
+                <span class="label">seconds</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

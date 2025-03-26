@@ -1,0 +1,227 @@
+.popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: rgba(19, 1, 33, 0.8);
+  display: none;
+
+  &.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  &__inner {
+    position: relative;
+    width: 80rem;
+    background: url("../img/popup-bg.png") 50% 50% no-repeat;
+    background-size: contain;
+    padding: 24rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 64rem;
+    height: 64rem;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -32%);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .popup-message {
+    position: relative;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .icon {
+      width: 30%;
+      height: 27rem;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: 100%;
+
+      &.icon-cross {
+        background-image: url("../img/cross.png");
+      }
+
+      &.icon-check {
+        background-image: url("../img/check.png");
+      }
+    }
+
+
+    .text {
+      width: 70%;
+      font-family: "Changa One", sans-serif;
+      font-size: 6.5rem;
+      letter-spacing: 0.7rem;
+      line-height: 90%;
+    }
+  }
+
+  .btn-popup {
+    width: 70rem;
+    text-transform: uppercase;
+    font-size: 9.5rem;
+    background-position: 0 7%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -36rem;
+    margin-bottom: -8rem;
+    z-index: 1;
+    letter-spacing: -1rem;
+    animation: pulseAnimation 1s ease-in-out infinite;
+  }
+}
+
+.popup-start {
+  .popup__inner {
+    gap: 6rem;
+  }
+
+  .popup-header {
+    .title {
+      color: $whte;
+      text-transform: uppercase;
+      font-size: 20rem;
+      line-height: 1;
+    }
+
+    .received {
+      font-size: 8rem;
+      line-height: 90%;
+      text-transform: uppercase;
+    }
+  }
+
+  .popup-spins {
+    color: $accent;
+    font-size: 20rem;
+    line-height: 70%;
+    font-family: "Changa One", sans-serif;
+  }
+}
+
+.popup-end {
+  .popup__inner {
+    gap: 6rem;
+    padding: 26rem 5rem;
+  }
+
+  .popup-header {
+    .title {
+      color: $whte;
+      text-transform: uppercase;
+      font-size: 18rem;
+      line-height: 75%;
+    }
+
+    .won {
+      font-size: 12rem;
+      letter-spacing: 1rem;
+      line-height: 80%;
+      text-transform: uppercase
+    }
+  }
+
+  .win-amount {
+    text-align: center;
+
+    .price {
+      color: $accent;
+      text-transform: uppercase;
+      font-size: 16rem;
+      line-height: 90%;
+    }
+
+    .spins {
+      font-size: 8rem;
+      line-height: 90%;
+      letter-spacing: 0.1rem;
+    }
+  }
+
+  .popup-message .text {
+    font-size: 6.2rem;
+  }
+
+  .btn-popup {
+    line-height: 1;
+    transform: translate(-50%, 15%);
+
+    span {
+      width: 75%;
+    }
+  }
+}
+
+.timer-box {
+  background: url("../img/timer-bg.png") 50% 50% no-repeat;
+  background-size: 100%;
+  width: 44rem;
+  height: 35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Titan One", sans-serif;
+  color: $whte;
+  padding: 2rem 1rem;
+  margin-top: 9rem;
+
+  .timer-title {
+    text-align: center;
+    font-size: 3.5rem;
+    -webkit-text-stroke: 0.2rem #2D063E;
+    text-stroke: 0.2rem #2D063E;
+  }
+
+  .timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .timer-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .number {
+        display: block;
+        -webkit-text-stroke: 0.5rem #2D063E;
+        text-stroke: 0.5rem #2D063E;
+        font-size: 14rem;
+        line-height: 90%;
+      }
+
+      .label {
+        display: block;
+        text-transform: uppercase;
+        font-size: 3.5rem;
+        -webkit-text-stroke: 0.2rem #2D063E;
+        text-stroke: 0.2rem #2D063E;
+      }
+
+      .dots {
+        transform: translateY(-20%);
+      }
+    }
+  }
+}

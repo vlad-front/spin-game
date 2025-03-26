@@ -1,0 +1,130 @@
+html {
+  font-size: min(.5141388175vh, .8796296296vw);
+}
+
+body {
+  color: $whte;
+  background: $black;
+  height: 100vh;
+  font-family: "Changa One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.wrapper {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  min-height: 100vh;
+  max-height: 100vh;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background: url("../img/main-bg.jpg") 50% 0 no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.wrapper__logo {
+  width: 53rem;
+  height: 53rem;
+  position: absolute;
+  left: 0;
+  top: -5rem;
+  z-index: 2;
+}
+
+.wrapper__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.wrapper__decor {
+  background: url("../img/wrapper-decor.png") 50% 0 no-repeat;
+  background-size: 100%;
+  width: 93rem;
+  height: 72rem;
+  transform: translateX(14rem);
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.btn-reset {
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  border: none;
+  background-color: transparent;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68.9rem;
+  height: 29.2rem;
+  background-image: url("../img/spin-button-bg.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 0 5%;
+  text-align: center;
+  color: $whte;
+  font-family: "Sigmar One", sans-serif;
+  -webkit-text-stroke: .7rem $dark;
+}
+
+.reel {
+  position: relative;
+  transition: transform 0.1s linear;
+}
+
+.reel.spinning {
+  animation: spin 1s linear;
+}
+
+.game-image.winner {
+  animation: winnerAnimation 1s ease-in-out infinite;
+}
+
+@keyframes pulseAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes winnerAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

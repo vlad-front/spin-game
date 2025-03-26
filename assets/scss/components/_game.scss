@@ -1,0 +1,89 @@
+.game {
+  width: 100%;
+  background: url("../img/game-bg.png") 50% 50% no-repeat;
+  background-size: 100%;
+  padding: 7rem 5.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 2;
+  margin-top: 27%;
+
+  &__grid {
+    height: 100rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: hidden;
+
+    &--col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .game-image {
+    width: 28rem;
+    height: 33.33rem;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+.spins-count {
+  width: 79.6rem;
+  height: 19.6rem;
+  background: url("../img/spins-bg.png") 50% 50% no-repeat;
+  background-size: contain;
+  margin: -10rem auto 0 auto;
+
+  &__text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #DCEFFF;
+    background: linear-gradient(#DCEFFF 33%, #C079E9 80%, #F0CDFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 10rem;
+    font-family: "Titan One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+  }
+}
+
+.btn-spin {
+  font-size: 14rem;
+  font-family: "Sigmar One", sans-serif;
+  -webkit-text-stroke: .7rem $dark;
+  animation: pulseAnimation 1s ease-in-out infinite;
+
+  &.disabled {
+    background-position: 0 93%;
+    opacity: 0.7;
+    animation: none;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(20rem);
+  }
+  100% {
+    transform: translateY(-266.66rem);
+  }
+}
