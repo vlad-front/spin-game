@@ -36,9 +36,20 @@ document.addEventListener('DOMContentLoaded', function() {
             currentSpin++;
             spinButton.classList.add('disabled');
 
-            reels.forEach(reel => {
+            reels.forEach((reel, index) => {
+                let offset;
+                if (currentSpin === 1) {
+                    offset = -33.33;
+                } else if (currentSpin === 2) {
+                    offset = -66.66;
+                } else if (currentSpin === 3) {
+                    if (index === 0) offset = -199.98;
+                    else if (index === 1) offset = -133.32;
+                    else if (index === 2) offset = -233.31;
+                }
+
                 reel.classList.add('spinning');
-                reel.style.transform = 'translateY(0)';
+                reel.style.transform = `translateY(${offset}rem)`;
 
                 const images = reel.querySelectorAll('.game-image');
                 const firstSix = Array.from(images).slice(0, 6);
@@ -52,32 +63,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 reels.forEach((reel, index) => {
                     reel.classList.remove('spinning');
 
-                    let offset;
-                    if (currentSpin === 1) {
-                        offset = -33.33;
-                    } else if (currentSpin === 2) {
-                        offset = -66.66;
-                    } else if (currentSpin === 3) {
-                        if (index === 0) offset = -166.65;
-                        else if (index === 1) offset = 0;
-                        else if (index === 2) offset = -233.31;
-                    }
-                    reel.style.transition = 'none';
-                    reel.style.transform = `translateY(${offset}rem)`;
-
                     const images = reel.querySelectorAll('.game-image');
                     if (images.length > 16) {
                         for (let i = 16; i < images.length; i++) {
                             images[i].remove();
                         }
                     }
-
-                    setTimeout(() => {
-                        reel.style.transition = 'transform 0.1s linear';
-                    }, 50);
                 });
 
-                spinButton.classList.remove('disabled');
+                if (currentSpin !== 3) {
+                    spinButton.classList.remove('disabled');
+                }
 
                 if (currentSpin === 3) {
                     const winnerSlots = document.querySelectorAll('.js--winner-slot');
@@ -88,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     setTimeout(() => {
                         endPopup.classList.add('active');
                         spinButton.disabled = true;
+                        spinButton.classList.add('disabled');
                         startTimer();
                     }, 3500);
                 }

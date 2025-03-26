@@ -424,6 +424,8 @@ img {
   background: url("../img/spins-bg.png") 50% 50% no-repeat;
   background-size: contain;
   margin: -10rem auto 0 auto;
+  position: relative;
+  z-index: 10;
 }
 .spins-count__text {
   width: 100%;
